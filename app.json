@@ -15,20 +15,13 @@
             "description": "The value to use as the Django secret key.",
             "generator": "secret"
         },
-        "GOOGLE_TRACKING_ID": {
-            "description": "Google Analytics tracking id.",
-            "required": false,
-            "value": ""
-        },
         "DEBUG": {
             "description": "Debug mode or not.",
             "required": false,
             "value": "False"
         },
-        "ALLOW_SIGNUP": {
-            "description": "Allow users to signup themselves or not",
-            "required": false,
-            "value": "True"
+        "DATABASE_URL": {
+            "description": "Database URL for persistence."
         }
     },
     "options": {
@@ -41,7 +34,8 @@
             "commands": [
                 "sed -i -e \"56aENV ADMIN_USERNAME=$ADMIN_USERNAME\" Dockerfile",
                 "sed -i -e \"56aENV ADMIN_PASSWORD=$ADMIN_PASSWORD\" Dockerfile",
-                "sed -i -e \"56aENV ADMIN_EMAIL=$ADMIN_CONTACT_EMAIL\" Dockerfile"
+                "sed -i -e \"56aENV ADMIN_EMAIL=$ADMIN_CONTACT_EMAIL\" Dockerfile",
+                "sed -i -e \"56aENV DATABASE_URL=$DATABASE_URL\" Dockerfile"
             ]
         }
     }
